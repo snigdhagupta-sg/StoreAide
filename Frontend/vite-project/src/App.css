@@ -1,0 +1,112 @@
+body, .app {
+  background: #181a20;
+  color: #f3f3f3;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  background: #23272f;
+  padding: 1rem 2rem;
+  transition: height 0.3s;
+  position: relative;
+}
+.navbar.shrink {
+  height: 40px;
+}
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00c3ff;
+}
+.navbar__menu {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.navbar__dropdown {
+  position: absolute;
+  right: 2rem;
+  top: 3.5rem;
+  background: #23272f;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px #0003;
+  padding: 0.5rem 1rem;
+}
+.product-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #23272f;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #0003;
+  padding: 2rem;
+}
+.product-page__img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 1rem;
+}
+.review-summary, .reviews {
+  background: #23272f;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.review {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+.chatbox {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  width: 350px;
+  height: 500px;
+  background: #23272f;
+  border-radius: 12px 0 0 12px;
+  box-shadow: -2px 0 16px #00c3ff44;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+.chatbox__header {
+  background: #00c3ff;
+  color: #181a20;
+  padding: 1rem;
+  font-weight: bold;
+  border-radius: 12px 0 0 0;
+}
+.chatbox__body {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+.chatbox__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.context-menu {
+  position: absolute;
+  background: #23272f;
+  color: #00c3ff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 24px #00c3ff33;
+}
+.main--shrink {
+  margin-right: 350px;
+  transition: margin 0.3s;
+}
