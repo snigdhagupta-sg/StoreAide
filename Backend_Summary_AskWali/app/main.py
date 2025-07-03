@@ -10,15 +10,8 @@ import os
 load_dotenv()
 
 client = genai.Client(api_key = os.getenv("GENAI_API_KEY"))
-mongo_client = MongoClient(os.getenv("MONGODB_URL"))
-
-db = mongo_client[os.getenv("MONGODB_DB_NAME")]
-accounts_col = db["accountnumbers"]
-transactions_col = db["transactions"]
 
 from pydantic import BaseModel
-from typing import Optional
-
 
 app.add_middleware(
     CORSMiddleware,
