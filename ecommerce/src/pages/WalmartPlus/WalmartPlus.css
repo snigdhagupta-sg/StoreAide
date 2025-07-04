@@ -1,0 +1,312 @@
+.walmart-plus-page {
+    flex: 1;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: calc(100vh - 140px);
+  }
+  
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #0071ce;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    z-index: 10;
+  }
+  
+  .home-btn:hover {
+    background: #005bb5;
+    transform: translateY(-2px);
+  }
+  
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: white;
+    border-radius: 16px;
+    padding: 60px 40px;
+    margin: 60px 0 40px 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #0071ce;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0071ce;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .hero-image {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .benefits-section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .benefits-section h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .benefit-card {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .benefit-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .benefit-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .benefit-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .pricing-section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  .pricing-section h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .plans-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .plan-card {
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    min-width: 200px;
+  }
+  
+  .plan-card.selected {
+    border-color: #0071ce;
+    background: #f8fbff;
+  }
+  
+  .plan-card.popular {
+    border-color: #ffc220;
+  }
+  
+  .popular-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffc220;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .plan-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .plan-price {
+    margin-bottom: 15px;
+  }
+  
+  .price {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0071ce;
+  }
+  
+  .period {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .savings-badge {
+    background: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .join-btn {
+    background: linear-gradient(135deg, #0071ce 0%, #004c87 100%);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+  }
+  
+  .join-btn:hover {
+    background: linear-gradient(135deg, #005bb5 0%, #003d6b 100%);
+    transform: translateY(-2px);
+  }
+  
+  .trial-note {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .faq-section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .faq-section h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .faq-item {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 25px;
+  }
+  
+  .faq-item h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .faq-item p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      grid-template-columns: 1fr;
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
+  
+    .hero-stats {
+      justify-content: center;
+    }
+  
+    .plans-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
