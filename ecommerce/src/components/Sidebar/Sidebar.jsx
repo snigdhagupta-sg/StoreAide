@@ -9,7 +9,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     { name: "Item Search Help", icon: "🔍", path: "/item-search-help" },
     { name: "Cart", icon: "🛒", path: "/cart" },
     { name: "Order History", icon: "📋", path: "/order-history" },
-    { name: "Search in different isle", icon: "📋", path: "/item_not_present" },
+    { name: "Explore Nearby Stores", icon: "📋", path: "/offline-store" },
   ]
 
   const handleLinkClick = () => {

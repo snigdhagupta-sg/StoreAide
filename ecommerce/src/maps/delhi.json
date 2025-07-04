@@ -1,0 +1,22 @@
+{
+  "layoutGrid": [
+    [0, 0, 0, 1, 1, 1, 1, 1, 1, 1],  
+    [0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 1, 0, 1, 1, 1, 1, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  ],
+  "items": [
+    { "name": "Frosted Flakes", "position": { "x": 6, "y": 3 } },
+    { "name": "Pepsi", "position": { "x": 5, "y": 1 } },
+    { "name": "Sara Lee Bread", "position": { "x": 8, "y": 2 } },
+    { "name": "2% Milk", "position": { "x": 8, "y": 5 } },
+    { "name": "Walmart+ Pickup", "position": { "x": 2, "y": 0 } },
+    { "name": "Fresh Apples", "position": { "x": 3, "y": 5 } },
+    { "name": "Samsung TV", "position": { "x": 7, "y": 4 } },
+    { "name": "Advil", "position": { "x": 4, "y": 1 } },
+    { "name": "Lays Chips", "position": { "x": 5, "y": 3 } }
+  ]
+}
