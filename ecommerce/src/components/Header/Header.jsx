@@ -1,14 +1,18 @@
 "use client"
 
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "./Header.css"
 
 const Header = ({ toggleSidebar }) => {
   const [searchQuery, setSearchQuery] = useState("")
+  const navigate = useNavigate()
 
   const handleSearch = (e) => {
     e.preventDefault()
-    console.log("Searching for:", searchQuery)
+    if (searchQuery.trim()) {
+      navigate(`/offline-store?search=${encodeURIComponent(searchQuery.trim())}`)
+    }
   }
 
   return (

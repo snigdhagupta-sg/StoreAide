@@ -1,0 +1,20 @@
+{
+  "layoutGrid": [
+    [0, 0, 0, 0, 1, 1, 1, 1, 1, 1],  
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 1],  
+    [1, 0, 1, 0, 1, 1, 1, 1, 0, 1],  
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 1, 1, 1, 1, 1, 1], 
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 1]
+  ],
+  "items": [
+    { "name": "Great Value Cereal", "position": { "x": 3, "y": 0 } },
+    { "name": "Coca-Cola", "position": { "x": 5, "y": 1 } },
+    { "name": "Wonder Bread", "position": { "x": 8, "y": 2 } },
+    { "name": "Great Value Milk", "position": { "x": 8, "y": 5 } },
+    { "name": "Tide Detergent", "position": { "x": 1, "y": 3 } },
+    { "name": "Bananas", "position": { "x": 2, "y": 1 } },
+    { "name": "iPhone Cases", "position": { "x": 6, "y": 3 } },
+    { "name": "Pharmacy", "position": { "x": 7, "y": 1 } }
+  ]
+}
