@@ -1,0 +1,175 @@
+.promo-card {
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+  
+  .promo-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+  }
+  
+  .promo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .promo-card:hover::before {
+    opacity: 1;
+  }
+  
+  .promo-card.small {
+    min-height: 280px;
+  }
+  
+  .promo-card.medium {
+    min-height: 320px;
+  }
+  
+  .promo-card.large {
+    min-height: 420px;
+    grid-column: span 2;
+  }
+  
+  .promo-card.featured {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .promo-card.featured::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 113, 206, 0.1), rgba(255, 194, 32, 0.1));
+    z-index: 1;
+  }
+  
+  .promo-content {
+    display: flex;
+    height: 100%;
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .promo-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .promo-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .promo-card.small .promo-title {
+    font-size: 22px;
+  }
+  
+  .promo-card.large .promo-title {
+    font-size: 36px;
+  }
+  
+  .promo-subtitle {
+    font-size: 16px;
+    margin: 0 0 25px 0;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+  
+  .shop-btn {
+    background: linear-gradient(135deg, #0071ce 0%, #004c87 100%);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    box-shadow: 0 4px 15px rgba(0, 113, 206, 0.3);
+  }
+  
+  .shop-btn:hover {
+    background: linear-gradient(135deg, #005bb5 0%, #003d6b 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 113, 206, 0.4);
+  }
+  
+  .promo-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+  }
+  
+  .promo-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .promo-card:hover .promo-image img {
+    transform: scale(1.05);
+  }
+  
+  .promo-card.small .promo-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .promo-card.small .promo-image {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .promo-card.large {
+      grid-column: span 1;
+      min-height: 320px;
+    }
+  
+    .promo-content {
+      flex-direction: column;
+      text-align: center;
+      padding: 25px;
+    }
+  
+    .promo-image {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+  
+    .promo-title {
+      font-size: 20px !important;
+    }
+  
+    .promo-subtitle {
+      font-size: 14px;
+    }
+  }
+  

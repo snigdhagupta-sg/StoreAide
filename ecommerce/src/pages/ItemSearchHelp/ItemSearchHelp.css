@@ -1,0 +1,182 @@
+.item-search-help-page {
+    flex: 1;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: calc(100vh - 140px);
+  }
+  
+  .help-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .help-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .help-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .help-header p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .search-tips {
+    margin-bottom: 50px;
+  }
+  
+  .search-tips h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  
+  .tip-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .tip-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .tip-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .tip-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .popular-searches {
+    margin-bottom: 50px;
+  }
+  
+  .popular-searches h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .search-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .search-tag {
+    background: linear-gradient(135deg, #0071ce 0%, #004c87 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .search-tag:hover {
+    background: linear-gradient(135deg, #005bb5 0%, #003d6b 100%);
+    transform: translateY(-2px);
+  }
+  
+  .contact-help {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .contact-help h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .contact-help p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .help-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .help-btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .help-btn.primary {
+    background: linear-gradient(135deg, #0071ce 0%, #004c87 100%);
+    color: white;
+  }
+  
+  .help-btn.primary:hover {
+    background: linear-gradient(135deg, #005bb5 0%, #003d6b 100%);
+    transform: translateY(-2px);
+  }
+  
+  .help-btn.secondary {
+    background: white;
+    color: #0071ce;
+    border: 2px solid #0071ce;
+  }
+  
+  .help-btn.secondary:hover {
+    background: #0071ce;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .help-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .help-btn {
+      width: 200px;
+    }
+  }
+  
