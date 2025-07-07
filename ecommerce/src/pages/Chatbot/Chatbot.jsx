@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import "./Chatbot.css"
+import { useState } from "react";
+import "./Chatbot.css";
+import ReactMarkdown from "react-markdown";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
@@ -11,60 +12,72 @@ const Chatbot = () => {
       sender: "bot",
       timestamp: new Date().toLocaleTimeString(),
     },
-  ])
-  const [inputMessage, setInputMessage] = useState("")
+  ]);
+
+  const [inputMessage, setInputMessage] = useState("");
 
   const quickReplies = [
-    "Track my order",
-    "Find store hours",
     "Return policy",
-    "Product availability",
-    "Price match",
     "Walmart+ benefits",
-  ]
+  ];
 
-  const handleSendMessage = (e) => {
-    e.preventDefault()
-    if (!inputMessage.trim()) return
+  const fetchBotResponse = async (userMessage) => {
+    try {
+      const response = await fetch("http://localhost:5000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_input: userMessage }),
+      });
+      const data = await response.json();
+      return data.reply || "Sorry, I didn't understand that.";
+    } 
+    catch (error) {
+      return "Sorry, there was an error connecting to the server.";
+    }
+  };
+
+  const handleSendMessage = async (e) => {
+    e.preventDefault();
+    if (!inputMessage.trim()) return;
 
     const newMessage = {
       id: messages.length + 1,
       text: inputMessage,
       sender: "user",
       timestamp: new Date().toLocaleTimeString(),
-    }
+    };
 
-    setMessages([...messages, newMessage])
-    setInputMessage("")
+    setMessages((prev) => [...prev, newMessage]);
+    setInputMessage("");
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse = {
+    try {
+      const botReply = await fetchBotResponse(inputMessage);
+
+      const botMessage = {
         id: messages.length + 2,
-        text: getBotResponse(inputMessage),
+        text: botReply,
         sender: "bot",
         timestamp: new Date().toLocaleTimeString(),
-      }
-      setMessages((prev) => [...prev, botResponse])
-    }, 1000)
-  }
+      };
 
-  const getBotResponse = (message) => {
-    const lowerMessage = message.toLowerCase()
-    if (lowerMessage.includes("order")) {
-      return "I can help you track your order! Please provide your order number or email address."
-    } else if (lowerMessage.includes("store") || lowerMessage.includes("hours")) {
-      return "Most Walmart stores are open 6 AM - 11 PM. Would you like me to find specific store hours near you?"
-    } else if (lowerMessage.includes("return")) {
-      return "Walmart has a 90-day return policy for most items. Do you need help with a specific return?"
-    } else {
-      return "I understand you're asking about that. Let me connect you with a specialist who can provide more detailed assistance."
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Bot reply failed:", error);
+      const errorMessage = {
+        id: messages.length + 2,
+        text: "Sorry, something went wrong!",
+        sender: "bot",
+        timestamp: new Date().toLocaleTimeString(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
     }
-  }
+  };
 
   const handleQuickReply = (reply) => {
-    setInputMessage(reply)
-  }
+    setInputMessage(reply);
+  };
 
   return (
     <div className="chatbot-page">
@@ -81,7 +94,7 @@ const Chatbot = () => {
           {messages.map((message) => (
             <div key={message.id} className={`message ${message.sender}`}>
               <div className="message-content">
-                <p>{message.text}</p>
+                <ReactMarkdown>{message.text}</ReactMarkdown>
                 <span className="timestamp">{message.timestamp}</span>
               </div>
             </div>
@@ -92,7 +105,11 @@ const Chatbot = () => {
           <p>Quick replies:</p>
           <div className="quick-reply-buttons">
             {quickReplies.map((reply, index) => (
-              <button key={index} className="quick-reply-btn" onClick={() => handleQuickReply(reply)}>
+              <button
+                key={index}
+                className="quick-reply-btn"
+                onClick={() => handleQuickReply(reply)}
+              >
                 {reply}
               </button>
             ))}
@@ -113,7 +130,7 @@ const Chatbot = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Chatbot
+export default Chatbot;

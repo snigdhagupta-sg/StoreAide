@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import "./ProductDetail.css"
+import ReactMarkdown from 'react-markdown'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -12,6 +13,8 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1)
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [showReviewSummary, setShowReviewSummary] = useState(false)
+  const [reviewSummary, setReviewSummary] = useState("")
+  const [loadingSummary, setLoadingSummary]     = useState(false)
 
   // Sample product data - in real app this would come from API
   const products = {
@@ -591,25 +594,33 @@ const ProductDetail = () => {
     ))
   }
 
-  const reviewSummary = {
-    averageRating: 4.6,
-    totalReviews: 25,
-    ratingBreakdown: {
-      5: 16,
-      4: 8,
-      3: 1,
-      2: 0,
-      1: 0,
-    },
-    highlights: [
-      "Excellent sound quality mentioned in 89% of reviews",
-      "Battery life praised by 76% of customers",
-      "Comfort highlighted in 68% of reviews",
-      "Noise cancellation loved by 84% of users",
-    ],
-    commonPros: ["Amazing sound quality", "Long battery life", "Comfortable fit", "Great noise cancellation"],
-    commonCons: ["Case could be smaller", "Price point", "Learning curve for controls"],
+
+const fetchReviewSummary = async () => {
+  setLoadingSummary(true)
+  try {
+    // 1️⃣ Gather review texts into an array
+    const reviewTexts = reviews.map((r) => r.content)
+
+    // 2️⃣ POST them to your FastAPI endpoint
+    const res = await fetch("http://localhost:5000/summarize_reviews", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reviews: reviewTexts }),  // matches ReviewsRequest
+    })
+
+    // 3️⃣ Parse the JSON response
+    const data = await res.json()
+
+    // 4️⃣ Store the summary in state
+    setReviewSummary(data.summary || "No summary available.")
+  } catch (err) {
+    console.error("Error fetching summary:", err)
+    setReviewSummary("Error fetching summary.")
+  } finally {
+    setLoadingSummary(false)
   }
+}
+
 
   return (
     <div className="product-detail-page">
@@ -770,62 +781,21 @@ const ProductDetail = () => {
                   <span>Based on {reviews.length} reviews</span>
                 </div>
               </div>
-              <button className="review-summary-btn" onClick={() => setShowReviewSummary(!showReviewSummary)}>
+              <button className="review-summary-btn" onClick={() => {setShowReviewSummary(!showReviewSummary), fetchReviewSummary()}}>
                 📊 Review Summary
               </button>
             </div>
           </div>
 
           {showReviewSummary && (
-            <div className="review-summary-box">
-              <h3>📈 Review Analysis</h3>
-              <div className="summary-content">
-                <div className="rating-breakdown">
-                  <h4>Rating Breakdown:</h4>
-                  {Object.entries(reviewSummary.ratingBreakdown)
-                    .reverse()
-                    .map(([stars, count]) => (
-                      <div key={stars} className="rating-bar">
-                        <span>{stars} ⭐</span>
-                        <div className="bar">
-                          <div
-                            className="bar-fill"
-                            style={{ width: `${(count / reviewSummary.totalReviews) * 100}%` }}
-                          ></div>
-                        </div>
-                        <span>{count}</span>
-                      </div>
-                    ))}
-                </div>
-                <div className="highlights">
-                  <h4>Key Highlights:</h4>
-                  <ul>
-                    {reviewSummary.highlights.map((highlight, index) => (
-                      <li key={index}>{highlight}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="pros-cons">
-                  <div className="pros">
-                    <h4>Most Mentioned Pros:</h4>
-                    <ul>
-                      {reviewSummary.commonPros.map((pro, index) => (
-                        <li key={index}>✅ {pro}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="cons">
-                    <h4>Areas for Improvement:</h4>
-                    <ul>
-                      {reviewSummary.commonCons.map((con, index) => (
-                        <li key={index}>⚠️ {con}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+  <div className="review-summary-box">
+    {loadingSummary
+      ? <p>Loading summary…</p>
+      : (console.log(`Summary: ${reviewSummary}`),
+      <ReactMarkdown>{reviewSummary}</ReactMarkdown>)
+    }
+  </div>
+)}
 
           <div className="reviews-list">
             {reviews.map((review) => (

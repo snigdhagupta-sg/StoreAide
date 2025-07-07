@@ -23,12 +23,13 @@ app.add_middleware(
 
 def return_reply_to_selected_text(text: str) -> dict:
     prompt = (
-        f"""This is an ecommerce website. Probably the message is about some product or some feature of a product. 
+        f"""This is walmart website. Probably the message is about some product or some feature of a product or something about walmart. 
         So you have to give a BRIEF meaning/description of it and then 
         If it is a feature: you have tell about it good and bad effects and if someone is buying it its being more is good or its being bad.
         How much of it is the best giving todays senario etc.
         If it is product: then tell about all its feature and that features good and bad effects and if someone is buying it its being more is good or its being bad.
         How much of it is the best giving todays senario etc.
+        If it something like return policy give info in respect to Walmart.
         Otherwise if its a simple message regarding some other if info or a simple hi, hello, thank you message reply politely and respectfully accordingly.
         The message of the user is: {text}
         Only send your reply in response"""
@@ -50,13 +51,14 @@ class Message(BaseModel):
 async def chat(message: Message):
     user_text = message.user_input
     prompt = (
-        f"""This is an ecommerce website. Probably the message is about some product or some feature of a product. 
+        f"""This is walmart website. Probably the message is about some product or some feature of a product or something about walmart. 
         So you have to give a BRIEF meaning/description of it and then 
         If it is a feature: you have tell about it good and bad effects and if someone is buying it its being more is good or its being bad.
         How much of it is the best giving todays senario etc.
         If it is product: then tell about all its feature and that features good and bad effects and if someone is buying it its being more is good or its being bad.
         How much of it is the best giving todays senario etc.
-        Otherwise if its a simple message regarding some other if info or a simple hi, hello, thank you message reply politely and respectfully accordingly.
+        If it something like return policy give info in respect to Walmart.
+        Otherwise if its a simple message regarding some other info or a simple hi, hello, thank you message reply politely and respectfully accordingly.
         The message of the user is: {message}
         Only send your reply in response"""
     )
