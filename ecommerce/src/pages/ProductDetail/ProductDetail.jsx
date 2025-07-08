@@ -20,7 +20,7 @@ const ProductDetail = () => {
   const products = {
     1: {
       id: 1,
-      name: "Wireless Bluetooth Headphones",
+      name: "Wireless Headphones",
       price: 89.99,
       originalPrice: 129.99,
       rating: 4.5,
@@ -59,9 +59,9 @@ const ProductDetail = () => {
     },
     2: {
       id: 2,
-      name: "Smart Watch Series 8",
-      price: 299.99,
-      originalPrice: 399.99,
+      name: "Smart Watch",
+      price: 199.99,
+      originalPrice: 299.99,
       rating: 4.7,
       reviewCount: 1523,
       description:
@@ -98,29 +98,29 @@ const ProductDetail = () => {
     },
     3: {
       id: 3,
-      name: "Coffee Maker Deluxe",
-      price: 129.99,
-      originalPrice: 159.99,
+      name: "Coffee Maker",
+      price: 79.99,
+      originalPrice: 99.99,
       rating: 4.3,
       reviewCount: 892,
       description:
-        "Brew the perfect cup every time with this premium coffee maker. Features programmable settings, thermal carafe, and built-in grinder for the freshest coffee experience.",
+        "Start your day right with this premium coffee maker. Features programmable brewing, thermal carafe, and multiple brew strength options for the perfect cup every time.",
       features: [
-        "Built-in coffee grinder",
         "Programmable 24-hour timer",
         "Thermal carafe keeps coffee hot",
+        "Multiple brew strength settings",
         "Auto shut-off safety feature",
-        "Water filtration system",
+        "Easy-clean removable parts",
         "12-cup capacity",
       ],
       colors: [
-        { name: "Stainless Steel", value: "#C0C0C0" },
         { name: "Black", value: "#000000" },
+        { name: "Stainless Steel", value: "#C0C0C0" },
       ],
       images: [
         "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=500&fit=crop",
         "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=500&h=500&fit=crop",
+        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&h=500&fit=crop",
       ],
       inStock: true,
       freeShipping: true,
@@ -129,26 +129,26 @@ const ProductDetail = () => {
         Model: "BM-1200",
         Capacity: "12 cups",
         Power: "1200W",
-        Dimensions: '14" x 10" x 16"',
-        Warranty: "3 years",
+        Dimensions: '14" x 10" x 12"',
+        Warranty: "1 year",
       },
     },
     4: {
       id: 4,
-      name: "Running Shoes Premium",
+      name: "Running Shoes",
       price: 129.99,
-      originalPrice: 179.99,
+      originalPrice: 159.99,
       rating: 4.6,
-      reviewCount: 1247,
+      reviewCount: 2156,
       description:
-        "Engineered for performance and comfort, these premium running shoes feature advanced cushioning technology and breathable materials for your best run yet.",
+        "Elevate your running experience with these high-performance athletic shoes. Featuring advanced cushioning, breathable mesh upper, and durable rubber outsole for maximum comfort and performance.",
       features: [
         "Advanced cushioning technology",
         "Breathable mesh upper",
         "Durable rubber outsole",
         "Lightweight design",
+        "Arch support system",
         "Moisture-wicking lining",
-        "Reflective details for visibility",
       ],
       colors: [
         { name: "Black/White", value: "#000000" },
@@ -167,27 +167,27 @@ const ProductDetail = () => {
         Brand: "RunTech",
         Model: "RT-Pro",
         Material: "Mesh/Synthetic",
+        Sole: "Rubber",
         Weight: "10.5 oz",
         Drop: "10mm",
-        Type: "Neutral",
       },
     },
     5: {
       id: 5,
-      name: "Laptop Stand Adjustable",
+      name: "Laptop Stand",
       price: 49.99,
       originalPrice: 69.99,
       rating: 4.4,
-      reviewCount: 634,
+      reviewCount: 743,
       description:
-        "Improve your workspace ergonomics with this adjustable laptop stand. Features multiple height and angle adjustments for optimal viewing comfort.",
+        "Improve your workspace ergonomics with this adjustable laptop stand. Made from premium aluminum with multiple height and angle adjustments for optimal viewing comfort.",
       features: [
-        "6 height adjustments",
-        "360-degree rotation",
-        "Foldable and portable",
+        "Adjustable height and angle",
+        "Premium aluminum construction",
         "Heat dissipation design",
         "Non-slip silicone pads",
-        "Supports up to 17-inch laptops",
+        "Foldable and portable",
+        "Compatible with 10-17 inch laptops",
       ],
       colors: [
         { name: "Silver", value: "#C0C0C0" },
@@ -196,35 +196,35 @@ const ProductDetail = () => {
       images: [
         "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
         "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=500&h=500&fit=crop",
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&h=500&fit=crop",
       ],
       inStock: true,
       freeShipping: true,
       specifications: {
-        Brand: "ErgoDesk",
-        Model: "ED-LS100",
+        Brand: "ErgoTech",
+        Model: "ET-LS100",
         Material: "Aluminum Alloy",
-        Weight: "2.2 lbs",
+        "Max Load": "22 lbs",
         Compatibility: "10-17 inch laptops",
-        Warranty: "1 year",
+        Weight: "2.1 lbs",
       },
     },
     6: {
       id: 6,
-      name: "Bluetooth Speaker Portable",
+      name: "Bluetooth Speaker",
       price: 59.99,
-      originalPrice: 89.99,
-      rating: 4.5,
-      reviewCount: 1156,
+      originalPrice: 79.99,
+      rating: 4.2,
+      reviewCount: 1234,
       description:
-        "Take your music anywhere with this powerful portable Bluetooth speaker. Waterproof design with 360-degree sound and long-lasting battery life.",
+        "Enjoy powerful, crystal-clear sound anywhere with this portable Bluetooth speaker. Features 360-degree sound, waterproof design, and 12-hour battery life.",
       features: [
         "360-degree surround sound",
         "IPX7 waterproof rating",
-        "20-hour battery life",
-        "Wireless stereo pairing",
-        "Built-in microphone",
-        "USB-C fast charging",
+        "12-hour battery life",
+        "Bluetooth 5.0 connectivity",
+        "Built-in microphone for calls",
+        "Compact and portable design",
       ],
       colors: [
         { name: "Black", value: "#000000" },
@@ -241,28 +241,28 @@ const ProductDetail = () => {
       specifications: {
         Brand: "SoundWave",
         Model: "SW-360",
-        Power: "20W",
-        Battery: "4000mAh",
-        Range: "100 feet",
-        Warranty: "2 years",
+        "Battery Life": "12 hours",
+        "Water Rating": "IPX7",
+        Connectivity: "Bluetooth 5.0",
+        Dimensions: '7" x 3" x 3"',
       },
     },
     7: {
       id: 7,
-      name: "Yoga Mat Premium",
+      name: "Yoga Mat",
       price: 29.99,
-      originalPrice: 49.99,
-      rating: 4.7,
-      reviewCount: 823,
+      originalPrice: 39.99,
+      rating: 4.5,
+      reviewCount: 567,
       description:
-        "Practice yoga in comfort with this premium non-slip yoga mat. Made from eco-friendly materials with superior grip and cushioning.",
+        "Practice yoga in comfort with this premium non-slip yoga mat. Made from eco-friendly materials with excellent grip and cushioning for all your yoga sessions.",
       features: [
         "Non-slip textured surface",
         "Eco-friendly TPE material",
-        "6mm thick cushioning",
+        "6mm thick for comfort",
         "Lightweight and portable",
         "Easy to clean",
-        "Alignment lines included",
+        "Alignment lines for proper positioning",
       ],
       colors: [
         { name: "Purple", value: "#800080" },
@@ -272,42 +272,43 @@ const ProductDetail = () => {
       ],
       images: [
         "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&h=500&fit=crop",
+        "https://images.unsplash.com/photo-1506629905607-d405b7a30db9?w=500&h=500&fit=crop",
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1506629905607-d9b1b2e3d3b1?w=500&h=500&fit=crop",
       ],
       inStock: true,
       freeShipping: true,
       specifications: {
         Brand: "ZenFit",
-        Model: "ZF-Premium",
-        Material: "TPE",
+        Model: "ZF-YM6",
+        Material: "TPE (Eco-friendly)",
         Thickness: "6mm",
-        Size: '72" x 24"',
-        Weight: "2.5 lbs",
+        Dimensions: '72" x 24"',
+        Weight: "2.2 lbs",
       },
     },
     8: {
       id: 8,
-      name: "Phone Case Protective",
+      name: "Phone Case",
       price: 19.99,
-      originalPrice: 34.99,
-      rating: 4.2,
-      reviewCount: 567,
+      originalPrice: 29.99,
+      rating: 4.1,
+      reviewCount: 892,
       description:
-        "Protect your phone with this military-grade protective case. Features shock absorption, raised edges, and wireless charging compatibility.",
+        "Protect your phone in style with this premium protective case. Features military-grade drop protection, wireless charging compatibility, and precise cutouts.",
       features: [
         "Military-grade drop protection",
-        "Shock-absorbing corners",
-        "Raised camera protection",
         "Wireless charging compatible",
-        "Precise cutouts",
-        "Anti-fingerprint coating",
+        "Precise port cutouts",
+        "Anti-scratch coating",
+        "Slim profile design",
+        "Easy installation",
       ],
       colors: [
-        { name: "Clear", value: "#FFFFFF" },
+        { name: "Clear", value: "transparent" },
         { name: "Black", value: "#000000" },
         { name: "Blue", value: "#0071CE" },
       ],
+      sizes: ["iPhone 14", "iPhone 14 Pro", "iPhone 15", "iPhone 15 Pro"],
       images: [
         "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=500&h=500&fit=crop",
         "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=500&h=500&fit=crop",
@@ -316,12 +317,12 @@ const ProductDetail = () => {
       inStock: true,
       freeShipping: true,
       specifications: {
-        Brand: "ShieldTech",
-        Model: "ST-Pro",
+        Brand: "GuardTech",
+        Model: "GT-Shield",
         Material: "TPU + PC",
-        Compatibility: "iPhone 14/15 Series",
-        Drop: "12 feet tested",
-        Warranty: "Lifetime",
+        "Drop Protection": "10 feet",
+        Compatibility: "Wireless charging",
+        Thickness: "2mm",
       },
     },
   }
@@ -348,243 +349,455 @@ const ProductDetail = () => {
     )
   }
 
-  const reviews = [
-    {
-      id: 1,
-      author: "Sarah M.",
-      rating: 5,
-      date: "2024-01-15",
-      title: "Excellent quality!",
-      content:
-        "These headphones exceeded my expectations. The sound quality is amazing and the noise cancellation works perfectly. Highly recommend!",
-      verified: true,
-    },
-    {
-      id: 2,
-      author: "Mike R.",
-      rating: 4,
-      date: "2024-01-10",
-      title: "Great value for money",
-      content:
-        "Good build quality and comfortable to wear for long periods. Battery life is as advertised. Only minor complaint is the case could be smaller.",
-      verified: true,
-    },
-    {
-      id: 3,
-      author: "Jennifer L.",
-      rating: 5,
-      date: "2024-01-08",
-      title: "Perfect for work calls",
-      content:
-        "Crystal clear audio for video calls and music. The active noise cancellation is a game changer for my home office setup.",
-      verified: false,
-    },
-    {
-      id: 4,
-      author: "David K.",
-      rating: 5,
-      date: "2024-01-05",
-      title: "Amazing sound quality",
-      content:
-        "The bass is incredible and the highs are crystal clear. These headphones are worth every penny. Fast shipping too!",
-      verified: true,
-    },
-    {
-      id: 5,
-      author: "Lisa P.",
-      rating: 4,
-      date: "2024-01-03",
-      title: "Comfortable for long use",
-      content:
-        "I wear these for 8+ hours a day working from home. Very comfortable and the battery lasts all day. Great purchase!",
-      verified: true,
-    },
-    {
-      id: 6,
-      author: "Robert T.",
-      rating: 5,
-      date: "2024-01-01",
-      title: "Best headphones I've owned",
-      content:
-        "Upgraded from my old headphones and the difference is night and day. The noise cancellation is phenomenal.",
-      verified: true,
-    },
-    {
-      id: 7,
-      author: "Amanda S.",
-      rating: 4,
-      date: "2023-12-28",
-      title: "Great for travel",
-      content:
-        "Used these on a 12-hour flight and they were perfect. Noise cancellation blocked out the plane noise completely.",
-      verified: false,
-    },
-    {
-      id: 8,
-      author: "Chris W.",
-      rating: 5,
-      date: "2023-12-25",
-      title: "Perfect Christmas gift",
-      content: "Bought these as a gift for my son and he absolutely loves them. Great quality and fast delivery.",
-      verified: true,
-    },
-    {
-      id: 9,
-      author: "Maria G.",
-      rating: 4,
-      date: "2023-12-22",
-      title: "Excellent build quality",
-      content:
-        "These feel very premium and well-made. The materials are high quality and they fold up nicely for travel.",
-      verified: true,
-    },
-    {
-      id: 10,
-      author: "James H.",
-      rating: 5,
-      date: "2023-12-20",
-      title: "Outstanding performance",
-      content: "The sound quality is exceptional. I use these for music production and they're incredibly accurate.",
-      verified: true,
-    },
-    {
-      id: 11,
-      author: "Nicole B.",
-      rating: 4,
-      date: "2023-12-18",
-      title: "Love the wireless feature",
-      content: "No more tangled wires! The Bluetooth connection is stable and the range is impressive.",
-      verified: false,
-    },
-    {
-      id: 12,
-      author: "Kevin M.",
-      rating: 5,
-      date: "2023-12-15",
-      title: "Incredible battery life",
-      content: "The 30-hour battery life is not exaggerated. I charge these maybe once a week with daily use.",
-      verified: true,
-    },
-    {
-      id: 13,
-      author: "Rachel D.",
-      rating: 4,
-      date: "2023-12-12",
-      title: "Great for gaming",
-      content: "Use these for gaming and the sound positioning is excellent. Can hear footsteps clearly in FPS games.",
-      verified: true,
-    },
-    {
-      id: 14,
-      author: "Tom L.",
-      rating: 5,
-      date: "2023-12-10",
-      title: "Stylish and functional",
-      content:
-        "These look great and perform even better. The design is sleek and modern. Very happy with this purchase.",
-      verified: true,
-    },
-    {
-      id: 15,
-      author: "Emma R.",
-      rating: 4,
-      date: "2023-12-08",
-      title: "Good value",
-      content: "For the price, these are excellent headphones. The features you get for the money is impressive.",
-      verified: false,
-    },
-    {
-      id: 16,
-      author: "Alex C.",
-      rating: 5,
-      date: "2023-12-05",
-      title: "Perfect for commuting",
-      content: "Use these on my daily train commute. The noise cancellation makes the journey so much more pleasant.",
-      verified: true,
-    },
-    {
-      id: 17,
-      author: "Sophia J.",
-      rating: 4,
-      date: "2023-12-03",
-      title: "Comfortable fit",
-      content: "These don't hurt my ears even after wearing them for hours. The padding is soft and well-designed.",
-      verified: true,
-    },
-    {
-      id: 18,
-      author: "Mark F.",
-      rating: 5,
-      date: "2023-12-01",
-      title: "Excellent customer service",
-      content: "Had a small issue and customer service resolved it immediately. Great product and great support.",
-      verified: true,
-    },
-    {
-      id: 19,
-      author: "Hannah K.",
-      rating: 4,
-      date: "2023-11-28",
-      title: "Quick charging feature",
-      content: "The quick charge feature is amazing. 5 minutes of charging gives hours of playback time.",
-      verified: false,
-    },
-    {
-      id: 20,
-      author: "Daniel P.",
-      rating: 5,
-      date: "2023-11-25",
-      title: "Highly recommended",
-      content:
-        "I've tried many headphones and these are by far the best. Sound quality, comfort, and features are all top-notch.",
-      verified: true,
-    },
-    {
-      id: 21,
-      author: "Grace T.",
-      rating: 4,
-      date: "2023-11-22",
-      title: "Great for workouts",
-      content: "These stay secure during workouts and the sweat resistance is good. Perfect for the gym.",
-      verified: true,
-    },
-    {
-      id: 22,
-      author: "Ryan S.",
-      rating: 5,
-      date: "2023-11-20",
-      title: "Amazing noise cancellation",
-      content: "The active noise cancellation is incredible. I can focus completely on my music or calls.",
-      verified: true,
-    },
-    {
-      id: 23,
-      author: "Olivia M.",
-      rating: 4,
-      date: "2023-11-18",
-      title: "Sleek design",
-      content: "These headphones look premium and feel premium. The design is modern and attractive.",
-      verified: false,
-    },
-    {
-      id: 24,
-      author: "Nathan W.",
-      rating: 5,
-      date: "2023-11-15",
-      title: "Best purchase this year",
-      content: "Absolutely love these headphones. They've exceeded all my expectations. Worth every dollar.",
-      verified: true,
-    },
-    {
-      id: 25,
-      author: "Chloe A.",
-      rating: 4,
-      date: "2023-11-12",
-      title: "Great microphone quality",
-      content: "The built-in microphone is excellent for calls. Everyone says I sound crystal clear.",
-      verified: true,
-    },
-  ]
+  const getProductReviews = (productId) => {
+    // Product-specific review templates
+    const reviewTemplates = {
+      1: {
+        // Wireless Headphones
+        reviews: [
+          {
+            id: 1,
+            author: "Sarah M.",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Amazing sound quality!",
+            content:
+              "These wireless headphones have incredible sound quality. The bass is deep and the highs are crystal clear. The noise cancellation works perfectly on my daily commute.",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Mike R.",
+            rating: 4,
+            date: "2024-01-10",
+            title: "Great battery life",
+            content:
+              "The 30-hour battery life is no joke! I've been using these for a week straight without charging. Comfortable for long listening sessions.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "Jennifer L.",
+            rating: 5,
+            date: "2024-01-08",
+            title: "Perfect for gaming",
+            content:
+              "These headphones are perfect for gaming. The sound positioning is excellent and the microphone quality is great for voice chat.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "David K.",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Excellent noise cancellation",
+            content:
+              "The active noise cancellation is incredible. I can focus on my music even in noisy environments. Worth every penny!",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "Lisa P.",
+            rating: 4,
+            date: "2024-01-03",
+            title: "Comfortable fit",
+            content:
+              "Very comfortable even after wearing for hours. The padding is soft and doesn't cause any discomfort. Great for long flights.",
+            verified: true,
+          },
+        ],
+      },
+      2: {
+        // Smart Watch
+        reviews: [
+          {
+            id: 1,
+            author: "Alex T.",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Perfect fitness companion",
+            content:
+              "This smartwatch tracks everything perfectly - heart rate, steps, sleep. The GPS is accurate and the battery lasts exactly 7 days as advertised.",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Emma S.",
+            rating: 4,
+            date: "2024-01-12",
+            title: "Great health features",
+            content:
+              "Love the ECG and heart rate monitoring. The sleep tracking is very detailed. Only wish the screen was a bit brighter in sunlight.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "John D.",
+            rating: 5,
+            date: "2024-01-10",
+            title: "Water resistance works great",
+            content:
+              "Took this swimming and it worked perfectly. The water resistance is legit. All the workout modes are useful too.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "Maria G.",
+            rating: 4,
+            date: "2024-01-08",
+            title: "Stylish and functional",
+            content:
+              "Looks great on my wrist and has all the features I need. The notifications work seamlessly with my iPhone.",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "Chris W.",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Best smartwatch I've owned",
+            content:
+              "Upgraded from an older model and this is so much better. The display is gorgeous and the health tracking is spot on.",
+            verified: true,
+          },
+        ],
+      },
+      3: {
+        // Coffee Maker
+        reviews: [
+          {
+            id: 1,
+            author: "Coffee_Lover_23",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Perfect morning coffee",
+            content:
+              "This coffee maker brews the perfect cup every time. The programmable timer means I wake up to fresh coffee. The thermal carafe keeps it hot for hours.",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Morning_Person",
+            rating: 4,
+            date: "2024-01-12",
+            title: "Great value for money",
+            content:
+              "Makes excellent coffee and the 12-cup capacity is perfect for our family. Easy to clean and the auto shut-off gives peace of mind.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "Java_Jane",
+            rating: 5,
+            date: "2024-01-10",
+            title: "Love the brew strength options",
+            content:
+              "Finally a coffee maker that lets me customize the strength! The strong setting makes coffee just how I like it. Highly recommend.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "Office_Manager",
+            rating: 4,
+            date: "2024-01-08",
+            title: "Perfect for the office",
+            content:
+              "We use this in our office and it's been great. Makes enough coffee for everyone and the thermal carafe keeps it warm all morning.",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "Busy_Mom",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Lifesaver for busy mornings",
+            content:
+              "The programmable feature is a lifesaver! I set it up the night before and wake up to fresh coffee. Makes mornings so much easier.",
+            verified: true,
+          },
+        ],
+      },
+      4: {
+        // Running Shoes
+        reviews: [
+          {
+            id: 1,
+            author: "Marathon_Runner",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Excellent for long runs",
+            content:
+              "These shoes are amazing for long distance running. The cushioning is perfect and they're incredibly lightweight. No blisters after 10+ mile runs.",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Weekend_Jogger",
+            rating: 4,
+            date: "2024-01-12",
+            title: "Comfortable and breathable",
+            content:
+              "Very comfortable shoes with great arch support. The mesh upper keeps my feet cool during runs. Good value for the price.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "Track_Coach",
+            rating: 5,
+            date: "2024-01-10",
+            title: "Great for athletes",
+            content:
+              "Recommended these to my track team and they love them. Excellent traction and the cushioning technology really works.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "Fitness_Enthusiast",
+            rating: 4,
+            date: "2024-01-08",
+            title: "Perfect for gym workouts",
+            content:
+              "Use these for all my workouts - running, HIIT, weightlifting. They're versatile and comfortable. The moisture-wicking lining works great.",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "New_Runner",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Great for beginners",
+            content:
+              "Just started running and these shoes are perfect. They provide great support and cushioning. My feet don't hurt after runs anymore.",
+            verified: true,
+          },
+        ],
+      },
+      5: {
+        // Laptop Stand
+        reviews: [
+          {
+            id: 1,
+            author: "Remote_Worker",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Perfect for home office",
+            content:
+              "This laptop stand has improved my posture so much! The adjustable height is perfect and the aluminum construction feels premium. Great for video calls.",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Student_Life",
+            rating: 4,
+            date: "2024-01-12",
+            title: "Great for studying",
+            content:
+              "Makes studying so much more comfortable. The angle adjustment is smooth and it's very stable. Folds up nicely for transport.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "Designer_Pro",
+            rating: 5,
+            date: "2024-01-10",
+            title: "Excellent build quality",
+            content:
+              "The aluminum construction is solid and the heat dissipation really works. My laptop runs cooler now. Worth the investment.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "Office_Worker",
+            rating: 4,
+            date: "2024-01-08",
+            title: "Ergonomic improvement",
+            content:
+              "My neck pain is gone since using this stand. The adjustability is great and it fits my 15-inch laptop perfectly.",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "Tech_Reviewer",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Best laptop accessory",
+            content:
+              "This is a must-have accessory for anyone who uses a laptop regularly. The build quality is excellent and it's very portable.",
+            verified: true,
+          },
+        ],
+      },
+      6: {
+        // Bluetooth Speaker
+        reviews: [
+          {
+            id: 1,
+            author: "Music_Lover",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Amazing 360-degree sound",
+            content:
+              "The sound quality is incredible for such a compact speaker. The 360-degree audio fills the entire room. Perfect for parties!",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Beach_Goer",
+            rating: 4,
+            date: "2024-01-12",
+            title: "Truly waterproof",
+            content:
+              "Took this to the beach and it survived sand and water perfectly. The IPX7 rating is legit. Sound quality is great outdoors.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "Outdoor_Enthusiast",
+            rating: 5,
+            date: "2024-01-10",
+            title: "Perfect for camping",
+            content:
+              "The 12-hour battery life is perfect for camping trips. Loud enough for outdoor use and the Bluetooth connection is very stable.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "Shower_Singer",
+            rating: 4,
+            date: "2024-01-08",
+            title: "Great for bathroom use",
+            content:
+              "Love using this in the shower. The waterproofing works perfectly and the sound quality is surprisingly good for the size.",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "Party_Host",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Party essential",
+            content:
+              "This speaker is loud enough for house parties and the sound quality is excellent. The built-in microphone works great for calls too.",
+            verified: true,
+          },
+        ],
+      },
+      7: {
+        // Yoga Mat
+        reviews: [
+          {
+            id: 1,
+            author: "Yoga_Instructor",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Perfect grip and cushioning",
+            content:
+              "This mat has excellent grip even during hot yoga sessions. The 6mm thickness provides perfect cushioning for my knees and joints.",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Beginner_Yogi",
+            rating: 4,
+            date: "2024-01-12",
+            title: "Great for beginners",
+            content:
+              "The alignment lines are super helpful for proper positioning. The mat is comfortable and doesn't slip during poses.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "Eco_Conscious",
+            rating: 5,
+            date: "2024-01-10",
+            title: "Love the eco-friendly material",
+            content:
+              "Happy to find a yoga mat made from eco-friendly TPE. It's comfortable, non-slip, and doesn't have any chemical smell.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "Home_Workout",
+            rating: 4,
+            date: "2024-01-08",
+            title: "Perfect for home workouts",
+            content:
+              "Use this for yoga, pilates, and stretching. It's the perfect thickness and the non-slip surface works great on hardwood floors.",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "Travel_Yogi",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Lightweight and portable",
+            content:
+              "This mat is surprisingly lightweight for its thickness. Easy to carry to classes and rolls up compactly. Great quality!",
+            verified: true,
+          },
+        ],
+      },
+      8: {
+        // Phone Case
+        reviews: [
+          {
+            id: 1,
+            author: "Clumsy_User",
+            rating: 5,
+            date: "2024-01-15",
+            title: "Survived multiple drops",
+            content:
+              "I've dropped my phone so many times with this case and it's still perfect. The military-grade protection really works!",
+            verified: true,
+          },
+          {
+            id: 2,
+            author: "Wireless_Charger",
+            rating: 4,
+            date: "2024-01-12",
+            title: "Works great with wireless charging",
+            content:
+              "The case doesn't interfere with wireless charging at all. Slim profile but still provides excellent protection.",
+            verified: true,
+          },
+          {
+            id: 3,
+            author: "Clear_Case_Fan",
+            rating: 5,
+            date: "2024-01-10",
+            title: "Crystal clear and protective",
+            content:
+              "The clear version shows off my phone's color perfectly while providing great protection. No yellowing after months of use.",
+            verified: false,
+          },
+          {
+            id: 4,
+            author: "Precise_Fit",
+            rating: 4,
+            date: "2024-01-08",
+            title: "Perfect fit and cutouts",
+            content:
+              "All the cutouts are perfectly aligned. Easy access to all ports and buttons. The anti-scratch coating works well.",
+            verified: true,
+          },
+          {
+            id: 5,
+            author: "Protection_First",
+            rating: 5,
+            date: "2024-01-05",
+            title: "Best protection for the price",
+            content:
+              "Excellent protection without adding too much bulk. The installation was super easy and it feels very secure.",
+            verified: true,
+          },
+        ],
+      },
+    }
+
+    return reviewTemplates[productId]?.reviews || []
+  }
+
+  const reviews = getProductReviews(product.id)
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, index) => (
