@@ -7,6 +7,9 @@ app = FastAPI()
 from dotenv import load_dotenv
 from google import genai
 import os
+from api.routes import router as api_router
+from api.routes import router as api_router
+from services.db import db
 load_dotenv()
 
 client = genai.Client(api_key = os.getenv("GENAI_API_KEY"))
@@ -107,3 +110,5 @@ async def summarize_reviews(request: ReviewsRequest):
     summary = response.text
     print("✅ Gemini summary:\n", summary)
     return {"summary": summary}
+
+app.include_router(api_router, prefix="/api")

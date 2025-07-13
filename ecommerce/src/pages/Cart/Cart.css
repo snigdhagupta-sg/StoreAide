@@ -2,12 +2,15 @@
     flex: 1;
     padding: 40px 20px;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    min-height: calc(100vh - 140px);
+    min-height: 100vh;
+    width: 100vw;   /* <-- Force full viewport width */
+      max-width: 1200px; /* or 100% if you want it fluid */
+  margin: 0 auto;    /* center it */
+  padding: 30px 190px;   /* some side padding */
   }
-  
   .cart-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
   }
   
   .cart-header {
@@ -67,6 +70,8 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
+      width: 100%;         /* <-- Ensure full stretch */
+  max-width: 100%;  
   }
   
   .cart-items {
@@ -234,4 +239,3 @@
       justify-self: end;
     }
   }
-  

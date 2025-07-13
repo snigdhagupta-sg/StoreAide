@@ -1,136 +1,170 @@
-"use client";
+import axios from 'axios';
+import { useState, useRef } from 'react';
+import ProductCard from './ProductCard';
 
-import { useState } from "react";
-import "./Chatbot.css";
-import ReactMarkdown from "react-markdown";
+import './VoiceAssis.css';
 
-const Chatbot = () => {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      text: "Hello! I'm your Walmart shopping assistant. How can I help you today?",
-      sender: "bot",
-      timestamp: new Date().toLocaleTimeString(),
-    },
-  ]);
-
-  const [inputMessage, setInputMessage] = useState("");
-
-  const quickReplies = [
-    "Return policy",
-    "Walmart+ benefits",
-  ];
-
-  const fetchBotResponse = async (userMessage) => {
-    try {
-      const response = await fetch("http://localhost:5000/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+const VoiceAssistant = () => {
+    const [matchedProducts, setMatchedProducts] = useState([]);
+    const [messages, setMessages] = useState([
+        {
+        sender: 'bot',
+        text: "Hi! I'm your shopping assistant today. How can I help you?",
         },
-        body: JSON.stringify({ user_input: userMessage }),
-      });
-      const data = await response.json();
-      return data.reply || "Sorry, I didn't understand that.";
-    } 
-    catch (error) {
-      return "Sorry, there was an error connecting to the server.";
-    }
-  };
+    ]);
+    const [botTyping, setBotTyping] = useState(false);
 
-  const handleSendMessage = async (e) => {
-    e.preventDefault();
-    if (!inputMessage.trim()) return;
+    const [input, setInput] = useState('');
+    const [recording, setRecording] = useState(false);
+    const [transcription, setTranscription] = useState('');
+    const mediaRecorderRef = useRef(null);
+    const audioChunksRef = useRef([]);
 
-    const newMessage = {
-      id: messages.length + 1,
-      text: inputMessage,
-      sender: "user",
-      timestamp: new Date().toLocaleTimeString(),
+    const startRecording = async () => {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mediaRecorder = new MediaRecorder(stream);
+
+        mediaRecorder.ondataavailable = (event) => {
+        audioChunksRef.current.push(event.data);
+        };
+
+        mediaRecorder.onstop = async () => {
+            const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
+            const formData = new FormData();
+            formData.append('file', audioBlob, 'recording.wav');
+
+            try {
+                const response = await axios.post('http://localhost:8000/api/transcribe/', formData, {
+                    headers: { 'Content-Type': 'multipart/form-data' },
+                });
+
+                const transcribedText = response.data.transcription;
+                setTranscription(transcribedText); // Still set if you want to use it elsewhere
+                setInput(transcribedText); // This puts it into the input box
+                // sendMessage(transcribedText);
+            } catch (error) {
+                console.error(error);
+                setTranscription('⚠️ Error during transcription.');
+            }
+
+            audioChunksRef.current = [];
+        };
+
+
+        mediaRecorderRef.current = mediaRecorder;
+        mediaRecorder.start();
+        setRecording(true);
     };
 
-    setMessages((prev) => [...prev, newMessage]);
-    setInputMessage("");
+    const stopRecording = () => {
+        if (mediaRecorderRef.current) {
+        mediaRecorderRef.current.stop();
+        setRecording(false);
+        }
+    };
+    const sendMessage = async (msg = input) => {
+        if (!msg.trim()) return;
 
-    try {
-      const botReply = await fetchBotResponse(inputMessage);
+        const userMessage = { sender: 'user', text: msg };
+        setMessages((prev) => [...prev, userMessage]);
+        setInput('');
+        setTranscription('');
+        setBotTyping(true);
 
-      const botMessage = {
-        id: messages.length + 2,
-        text: botReply,
-        sender: "bot",
-        timestamp: new Date().toLocaleTimeString(),
-      };
+        try {
+            const res = await fetch('http://localhost:8000/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg }),
+            });
 
-      setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
-      console.error("Bot reply failed:", error);
-      const errorMessage = {
-        id: messages.length + 2,
-        text: "Sorry, something went wrong!",
-        sender: "bot",
-        timestamp: new Date().toLocaleTimeString(),
-      };
-      setMessages((prev) => [...prev, errorMessage]);
-    }
-  };
+            const data = await res.json();
+            const botReply = { sender: 'bot', text: data.reply };
+            setMessages((prev) => [...prev, botReply]);
+            setMatchedProducts(data.products);
+        } catch (error) {
+            setMessages((prev) => [...prev, { sender: 'bot', text: "Sorry, I couldn't process that." }]);
+        }
+        setBotTyping(false);
+    };
 
-  const handleQuickReply = (reply) => {
-    setInputMessage(reply);
-  };
+    const handleSend = () => sendMessage();
 
-  return (
-    <div className="chatbot-page">
-      <div className="chatbot-container">
-        <div className="chatbot-header">
-          <div className="bot-avatar">🤖</div>
-          <div className="bot-info">
-            <h2>Walmart Assistant</h2>
-            <span className="status">Online</span>
-          </div>
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') handleSend();
+    };
+    const handleAddToCart = async (productId) => {
+        try {
+            await fetch('http://localhost:8000/api/cart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ productId, quantity: 1 }),
+            });
+            alert('Added to cart!');
+        } catch (err) {
+            console.error('Error adding to cart:', err);
+        }
+    };
+
+
+    return (
+        <div className="chatbot">
+        <div className='Top-bar'>
+        <span className="topbar-title">Shopping Assistant</span>
+        <button className="cart-btn">Cart</button>
         </div>
 
-        <div className="chat-messages">
-          {messages.map((message) => (
-            <div key={message.id} className={`message ${message.sender}`}>
-              <div className="message-content">
-                <ReactMarkdown>{message.text}</ReactMarkdown>
-                <span className="timestamp">{message.timestamp}</span>
-              </div>
+        <div className="chats">
+        {messages.map((msg, idx) => (
+            <div
+            key={idx}
+            className={`chat-row ${msg.sender === 'user' ? 'chat-user' : 'chat-bot'}`}
+            >
+            {/* Only for bot messages: show text and products in the same bubble */}
+            {msg.sender === 'bot' && idx === messages.length - 1 && matchedProducts.length > 0 ? (
+                <div className="chat-bubble bot product-bubble">
+                <div>{msg.text}</div>
+                <div className="matched-products-row" style={{ marginTop: '0.5rem' }}>
+                    {matchedProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
+                    ))}
+                </div>
+                </div>
+            ) : (
+                <div className={`chat-bubble ${msg.sender}`}>{msg.text}</div>
+            )}
             </div>
-          ))}
+        ))}
+        {botTyping && (
+            <div className="chat-row chat-bot">
+            <div className="chat-bubble bot">Typing<span className="dot">.</span><span className="dot">.</span><span className="dot">.</span></div>
+            </div>
+        )}
         </div>
 
-        <div className="quick-replies">
-          <p>Quick replies:</p>
-          <div className="quick-reply-buttons">
-            {quickReplies.map((reply, index) => (
-              <button
-                key={index}
-                className="quick-reply-btn"
-                onClick={() => handleQuickReply(reply)}
-              >
-                {reply}
-              </button>
-            ))}
-          </div>
-        </div>
 
-        <form className="chat-input-form" onSubmit={handleSendMessage}>
-          <input
+        <div className="input-row">
+            <input
             type="text"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            placeholder="Type your message..."
-            className="chat-input"
-          />
-          <button type="submit" className="send-btn">
-            Send
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+            value = {input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyPress}
+            placeholder="Tell what you want to shop today..."
+            />
+            {recording && (
+                <div className="recording-indicator">
+                🔴 Recording...
+                </div>
+            )}
+            <button onClick={handleSend}>Send</button>
+            <button onClick={recording ? stopRecording : startRecording}>
+                {recording ? '⏹️ Stop' : '🎙️ Record'}
+            </button>
+
+        </div>
+        </div>
+    );
 };
 
-export default Chatbot;
+export default VoiceAssistant;
