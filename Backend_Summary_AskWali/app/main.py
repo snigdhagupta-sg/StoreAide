@@ -8,11 +8,10 @@ from dotenv import load_dotenv
 from google import genai
 import os
 from api.routes import router as api_router
-from api.routes import router as api_router
 from services.db import db
 load_dotenv()
 
-client = genai.Client(api_key = os.getenv("GENAI_API_KEY"))
+client = genai.Client(api_key = os.getenv("GEMINI_API_KEY"))
 
 from pydantic import BaseModel
 
@@ -104,7 +103,7 @@ class ReviewsRequest(BaseModel):
 async def summarize_reviews(request: ReviewsRequest):
     prompt = summarize_reviews_prompt(request.reviews)
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         contents=prompt
     )
     summary = response.text
@@ -112,3 +111,5 @@ async def summarize_reviews(request: ReviewsRequest):
     return {"summary": summary}
 
 app.include_router(api_router, prefix="/api")
+
+app.mongodb = db

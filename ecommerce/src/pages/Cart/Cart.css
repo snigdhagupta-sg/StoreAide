@@ -4,7 +4,7 @@
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     min-height: 100vh;
     width: 100vw;   /* <-- Force full viewport width */
-      max-width: 1200px; /* or 100% if you want it fluid */
+    max-width: 1200px; /* or 100% if you want it fluid */
   margin: 0 auto;    /* center it */
   padding: 30px 190px;   /* some side padding */
   }
