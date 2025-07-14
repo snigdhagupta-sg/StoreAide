@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import "./ChatbotHellp.css";
+import "./ChatbotHelp.css";
 import ReactMarkdown from "react-markdown";
 
 const ChatbotHelp = () => {
