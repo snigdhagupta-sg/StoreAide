@@ -2,9 +2,9 @@ import axios from 'axios';
 import { useState, useRef } from 'react';
 import ProductCard from './ProductCard';
 
-import './VoiceAssis.css';
+import './Chatbot.css';
 
-const VoiceAssistant = () => {
+const Chatbot = () => {
     const [matchedProducts, setMatchedProducts] = useState([]);
     const [messages, setMessages] = useState([
         {
@@ -167,4 +167,4 @@ const VoiceAssistant = () => {
     );
 };
 
-export default VoiceAssistant;
+export default Chatbot;
