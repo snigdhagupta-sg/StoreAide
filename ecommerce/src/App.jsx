@@ -18,6 +18,7 @@ import MyItems from "./pages/MyItems/MyItems"
 import WalmartPlus from "./pages/WalmartPlus/WalmartPlus"
 import More from "./pages/More/More"
 import OfflineStore from "./pages/OfflineStore/OfflineStore"
+import ChatbotHelp from "./pages/Chatbot/ChatbotHelp"
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -43,7 +44,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/item-search-help" element={<ItemSearchHelp />} />
             <Route path="/offline-store" element={<OfflineStore />} />
-           
+            <Route path='/chatbot-help' element={<ChatbotHelp />} />
             <Route path="/my-items" element={<MyItems />} />
             <Route path="/walmart-plus" element={<WalmartPlus />} />
             <Route path="/more" element={<More />} />

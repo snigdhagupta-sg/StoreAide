@@ -4,7 +4,8 @@ import "./Sidebar.css"
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const quickLinks = [
-    { name: "Chatbot", icon: "💬", path: "/chatbot" },
+    { name: "Shopping Assistant", icon: "💬", path: "/chatbot" },
+    { name: "Chatbot Help", icon: "💬", path: "/chatbot-help" },
     { name: "Feedback", icon: "📝", path: "/feedback" },
     { name: "Item Search Help", icon: "🔍", path: "/item-search-help" },
     { name: "Cart", icon: "🛒", path: "/cart" },
